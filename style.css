@@ -13,6 +13,15 @@
   :root{
     font-size: 1em;
     --logo-fs: 4rem;
+    --password-validation: hidden;
+    --invalid-color: red;
+    --valid-color: green;
+    --main-form-color: rgb(126, 190, 188);
+    --form-area-color: rgb(152, 209, 207);
+    --submit-actions-color: rgb(29, 109, 105);
+    --input-focus-color: rgb(22, 241, 234);
+    --input-hover-color: rgb(238, 236, 236);
+
   }
 
   body{
@@ -74,7 +83,7 @@
 
   .right-form{
 
-    background-color: rgb(152, 209, 207);
+    background-color: var(--form-area-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -95,13 +104,13 @@
   }
 
   .main-form{
-    background-color: rgb(126, 190, 188);
+    background-color: var(--main-form-color);
     width: 100%;
     box-shadow: 0 3px 2px -2px;
     padding-left: 40px;
     padding-top: 30px;
 
-    flex-basis: 320px;
+    flex-basis: 350px;
 
     display: flex;
     flex-direction: column;
@@ -120,8 +129,7 @@
   }
 
   fieldset{
-    display: flex;
-    flex-direction: row;
+
     flex-wrap: wrap;
     border: none;
   }
@@ -129,7 +137,12 @@
   legend{
     font-size: 1.4rem;
     font-weight: bold;
-    opacity: 0.8;
+    opacity: 0.85;
+  }
+
+  legend + p{
+    opacity: 0.7;
+    margin-bottom: 20px;
   }
 
   .form-row{
@@ -152,11 +165,66 @@
     border-radius:6px;
   }
 
+  input{
+    padding: 5px;
+  }
+
   input:focus{
     outline: none;
-    border: 2px solid rgb(22, 241, 234);
-    box-shadow: 1px 1px 3px;
+    border: 2px solid var(--input-focus-color);
+    box-shadow: 1px 1px 2px;
     
+  }
+
+  input:invalid:not(#confirm-password){
+    border: 2px solid var(--invalid-color);
+  }
+
+  input:hover{
+    background-color: var(--input-hover-color);
+  }
+
+  #password + p{
+    font-size: 14px;
+    width: 300px;
+  }
+  
+  #password:invalid + p{
+    color: var(--invalid-color);
+  }
+
+  #password:invalid + p::before{
+    color: var(--invalid-color);
+    content: "✖"
+  }
+
+  #password:valid + p{
+    color: var(--valid-color);
+  }
+
+  #password:valid + p::before{
+    color: var(--valid-color);
+    content: "✓";
+  }
+
+  #confirm-password + p{
+    visibility: hidden;
+    color: var(--invalid-color);
+    font-size: 14px;
+  }
+
+  .form-row:last-child .form-control{
+    position: relative;
+  }
+
+  label ~ img{
+    position: absolute;
+    width: 25px;
+    right: 1px;
+    cursor:pointer;
+    visibility: hidden;
+    margin-top: 2px;
+    margin-right: 2px;
   }
 
   .form-confirmation{
@@ -164,7 +232,7 @@
   }
 
   .submit-button{
-    background-color: rgb(29, 109, 105);
+    background-color: var(--submit-actions-color);
     color: white;
     font-size: 1rem;
     font-weight: bold;
@@ -179,6 +247,6 @@
   .form-confirmation > p > a{
     text-decoration: none;
     font-weight: bold;
-    color: rgb(18, 85, 82);
+    color: var(--submit-actions-color);
   }
 
