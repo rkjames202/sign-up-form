@@ -1,17 +1,26 @@
+//Nodes related to the password field
 const revealImgPass = document.querySelector('label[for="password"] ~ img[src$="show.png"]');
 const hideImgPass = document.querySelector('label[for="password"] ~ img[src$="hide.png"]');
 const password = document.querySelector('#password');
 
+//Nodes related tot the confirm password field
 const revealImgConfirm = document.querySelector('label[for="confirm-password"] ~ img[src$="show.png"]');
 const hideImgConfirm = document.querySelector('label[for="confirm-password"] ~ img[src$="hide.png"]');
 const confirmPass = document.querySelector('#confirm-password');
 
+/**
+ * Checks if password fields match
+ * 
+ * @returns if password fields are valid or not
+ */
 function validatePasswordConfirmation(){ 
     const errorMessage = document.querySelector('#confirm-password + p');
+
         if(confirmPass.value !== password.value){
+            //Give confirm password border so user will see its invalid
             confirmPass.style.border = "2px solid var(--invalid-color)";
+            //Displays message letting user know
             errorMessage.style.visibility = "visible";
-            alert('here');
             return false;
         } else {
             
@@ -19,8 +28,14 @@ function validatePasswordConfirmation(){
         }
 }
 
+/**
+ * Changes input types of password fields when 
+ * hide/reveal icon is clicked. Also alternates 
+ * between the two buttons on click.
+ */
 function passwordVisibility(){
     
+    //Adds listeners to img elements of both password fields
     revealImgPass.addEventListener('click', changeInputTypePass);
     hideImgPass.addEventListener('click', changeInputTypePass);
 
@@ -71,6 +86,11 @@ function passwordVisibility(){
       
 }
 
+/**
+ * Callback function
+ * 
+ * Changes input type of password field
+ */
 function changeInputTypePass(){
 
     if(password.type == 'password'){
@@ -84,6 +104,11 @@ function changeInputTypePass(){
     }
 }
 
+/**
+ * Callback function
+ * 
+ * Changes input type of confirm password field
+ */
 function changeInputTypeConfirm(){
     if(confirmPass.type == 'password'){
         confirmPass.removeAttribute('type');
