@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!--Make right side div and left side for-->
+    
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Form</title>
     <link href="style.css" rel="stylesheet">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <div class="left-background">
@@ -29,39 +30,45 @@
         </div>
         
         <div class="main-form">
-            <form action="" method="get" id="user-form">
+            <form action="" method="get" id="user-form" onsubmit="return validatePasswordConfirmation()">
                 <fieldset>
                     <legend>Let's do This!</legend>
-                
+                    <p>Required fields are marked with an asterisk (<span aria-label="required">*</span>)</p>
                     <div class="form-container">
                         <div class="form-row">
                             <div class="form-control">
-                                <label for="f-name">First Name</label>
-                                <input type="text" id="f-name" name="f-name">
+                                <label for="f-name">First Name<span aria-label="required">*</span></label>
+                                <input type="text" id="f-name" name="f-name" placeholder="John" required>
                             </div>
                             <div class="form-control">
                                 <label for="l-name">Last Name</label>
-                                <input type="text" id="l-name" name="l-name">
+                                <input type="text" id="l-name" name="l-name" placeholder="Doe">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-control">
-                                <label for="user-email">Email</label>
-                                <input type="email" id="user-email" name="user-email">
+                                <label for="user-email">Email<span aria-label="required">*</span></label>
+                                <input type="email" id="user-email" name="user-email" placeholder="johndoe@email.com" required>
                             </div>
                             <div class="form-control">
                                 <label for="phone-number">Phone Number</label>
-                                <input type="tel" id="phone-number" name="phone-number">
+                                <input type="tel" id="phone-number" name="phone-number" placeholder="1234567890 or 123-456-7890" title="Phone number must be 10 digits separated by no space, a dot (.) or a hyphen (-)." pattern="d{10}|\d{3}-?\s?\.?\d{3}-?\s?\.?\d{4}">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-control">
-                                <label for="password">Password</label>
-                                <input type="password" id="password" name="password">
+                                <label for="password">Password<span aria-label="required">*</span></label>
+                                <img src="img/show.png" alt="show password icon">
+                                <img src="img/hide.png" alt="hide password icon">
+                                <input type="password" id="password" name="password" value="" title="Password must contain at least 1 uppercase character, 1 lowercase letter, and 1 number." pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" oncopy="return false" onpaste="return false" required>
+                                <p>Password must contain at least 1 uppercase character, 1 lowercase letter, and 1 number.</p>
                             </div>
                             <div class="form-control">
-                                <label for="confirm-password">Confirm Password</label>
-                                <input type="password" id="confirm-password" name="confirm password">
+                                <label for="confirm-password">Confirm Password<span aria-label="required">*</span></label>
+                                <img src="img/show.png" alt="show password icon">
+                                <img src="img/hide.png" alt="hide password icon">
+                                <input type="password" id="confirm-password" name="confirm password" value="" oncopy="return false" onpaste="return false" required>
+                                <p>Passwords must match</p>
                             </div>
                         </div>
                     </div>
