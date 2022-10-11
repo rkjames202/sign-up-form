@@ -36,7 +36,7 @@
   /** Left side of webpage**/
   .left-background{
     width: 40vw;
-    background-image: url("/img/anton-polidovets-GAW6tK1RwLE-unsplash.jpg");
+    background-image: url("img/anton-polidovets-GAW6tK1RwLE-unsplash.jpg");
     background-position: center;
     background-size: cover;
 
