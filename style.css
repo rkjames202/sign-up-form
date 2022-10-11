@@ -19,6 +19,7 @@
     --main-form-color: rgb(126, 190, 188);
     --form-area-color: rgb(152, 209, 207);
     --submit-actions-color: rgb(29, 109, 105);
+    --submit-button-active: rgb(20, 75, 72);
     --input-focus-color: rgb(22, 241, 234);
     --input-hover-color: rgb(238, 236, 236);
 
@@ -242,6 +243,10 @@
     width: 200px;
     cursor: pointer;
     margin-bottom: 30px;
+  }
+
+  .submit-button:active{
+    background-color: var(--submit-button-active);
   }
 
   .form-confirmation > p > a{
